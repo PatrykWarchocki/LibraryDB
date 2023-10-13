@@ -10,11 +10,11 @@ import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="genres", 
-	   uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
+	   uniqueConstraints={@UniqueConstraint(columnNames={"genre"})})
 public class Genres {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id", nullable=false, unique=true)
+	@Column(name="id", nullable=false)
 	private int id;
 	
 	@Column(name="genre", length=25, nullable=true, unique=true)

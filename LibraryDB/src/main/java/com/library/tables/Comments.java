@@ -10,16 +10,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="comments", 
-	   uniqueConstraints={@UniqueConstraint(columnNames={"commentID"})})
+@Table(name="comments")
 public class Comments {
 	// Variables
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="commentID", nullable=false, unique=true)
+	@Column(name="commentID", nullable=false)
 	private int commentID;
 	
     @OneToOne
@@ -33,7 +31,7 @@ public class Comments {
     @Column(name="dateOfComment", nullable=true)
 	private Timestamp dateOfComment;
     
-    @Column(name="login", length=280, nullable=true)
+    @Column(name="commentText", length=280, nullable=true)
 	private String commentText;
 	
 	// CommentID

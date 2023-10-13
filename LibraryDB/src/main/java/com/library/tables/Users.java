@@ -12,7 +12,7 @@ import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="users", 
-	   uniqueConstraints={@UniqueConstraint(columnNames={"userID"})})
+	   uniqueConstraints={@UniqueConstraint(columnNames={"login", "email", "mobilePhone"})})
 public class Users {
 	// Variables
 	@Id
@@ -42,7 +42,7 @@ public class Users {
 	@Column(name="password", length=40, nullable=true)
 	private String address;
 	
-	@Column(name="password", length=9, nullable=true)
+	@Column(name="password", length=9, nullable=true, unique=true)
 	private String mobilePhone;
 	
     @OneToOne
