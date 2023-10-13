@@ -1,17 +1,55 @@
 package com.library.tables;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+
+@Entity
+@Table(name="users", 
+	   uniqueConstraints={@UniqueConstraint(columnNames={"userID"})})
 public class Users {
 	// Variables
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="userID", nullable=false, unique=true)
 	private int userID;
+	
+	@Column(name="login", length=12, nullable=true, unique=true)
 	private String login;
+	
+	@Column(name="password", length=12, nullable=true)
 	private String password;
+	
+	@Column(name="login", length=24, nullable=true, unique=true)
 	private String email;
+	
+	@Column(name="password", length=20, nullable=true)
 	private String firstname;
+	
+	@Column(name="password", length=20, nullable=true)
 	private String surname;
+	
+    @OneToOne
+    @JoinColumn(name = "id")
 	private Genders gender; // Foreign Key - Genders.id
+    
+	@Column(name="password", length=40, nullable=true)
 	private String address;
+	
+	@Column(name="password", length=9, nullable=true)
 	private String mobilePhone;
+	
+    @OneToOne
+    @JoinColumn(name = "id")
 	private Roles role; // Foreign Key - Roles.id
+    
+    @Column(name="password", nullable=true)
 	private boolean status;
 	
 	// ID
