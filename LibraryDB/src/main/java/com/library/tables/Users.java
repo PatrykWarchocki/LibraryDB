@@ -49,7 +49,7 @@ public class Users {
     @JoinColumn(name = "id")
 	private Roles role; // Foreign Key - Roles.id
     
-    @Column(name="password", nullable=true)
+    @Column(name="status", nullable=true)
 	private boolean status;
 	
 	// ID
