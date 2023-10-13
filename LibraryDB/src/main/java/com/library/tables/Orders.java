@@ -2,14 +2,44 @@ package com.library.tables;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+
+@Entity
+@Table(name="orders", 
+	   uniqueConstraints={@UniqueConstraint(columnNames={"orderID"})})
 public class Orders {
 	// Variables
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="orderID", nullable=false, unique=true)
 	private int orderID;
+	
+    @OneToOne
+    @JoinColumn(name = "userID")
 	private Users userID; // Foreign Key - Users.userID
+    
+    @Column(name="orderDate", nullable=true)
 	private Date orderDate;
+	
+    @OneToOne
+    @JoinColumn(name = "id")
 	private OrderType orderType; // Foreign Key - OrderType.id
+    
+    @Column(name="dateFrom", nullable=true)
 	private Date dateFrom;
+    
+    @Column(name="dateTo", nullable=true)
 	private Date dateTo;
+    
+    @Column(name="status", nullable=true)
 	private boolean status;
 
 	// ID
