@@ -10,16 +10,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="orders", 
-	   uniqueConstraints={@UniqueConstraint(columnNames={"orderID"})})
+@Table(name="orders")
 public class Orders {
 	// Variables
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="orderID", nullable=false, unique=true)
+	@Column(name="orderID", nullable=false)
 	private int orderID;
 	
     @OneToOne

@@ -8,16 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="books", 
-	   uniqueConstraints={@UniqueConstraint(columnNames={"bookID"})})
+@Table(name="books")
 public class Books {
 	// variables
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="bookID", nullable=false, unique=true)
+	@Column(name="bookID", nullable=false)
 	private int bookID;
 	
 	@Column(name="title", length=100, nullable=true)
