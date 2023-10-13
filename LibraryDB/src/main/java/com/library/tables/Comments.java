@@ -5,8 +5,8 @@ import java.sql.Timestamp;
 public class Comments {
 	// Variables
 	private int commentID;
-	private int userID; // Foreign Key - Users.userID
-	private int bookID; // Foreign Key - Books.bookID
+	private Users userID; // Foreign Key - Users.userID
+	private Books bookID; // Foreign Key - Books.bookID
 	private Timestamp dateOfComment;
 	private String commentText;
 	
@@ -16,20 +16,20 @@ public class Comments {
 	}
 	
 	// UserID
-	public void SetUserID(int arg) {
+	public void SetUserID(Users arg) {
 		this.userID = arg;
 	}
 	
-	public int GetUserID() {
+	public Users GetUserID() {
 		return userID;
 	}
 	
 	// BookID
-	public void SetBookID(int arg) {
+	public void SetBookID(Books arg) {
 		this.bookID = arg;
 	}
 	
-	public int GetBookID() {
+	public Books GetBookID() {
 		return bookID;
 	}
 	

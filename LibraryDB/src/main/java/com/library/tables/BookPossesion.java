@@ -2,35 +2,35 @@ package com.library.tables;
 
 public class BookPossesion {
 	// Variables
-	private int userID;
-	private int bookID;
-	private int orderID;
+	private Users userID; // Foreign Key - Users.id
+	private Books bookID; // Foreign Key - Books.id
+	private Orders orderID; // Foreign Key - Orders.id
 	private boolean issued;
 	
 	// UserID
-	public void SetUserID(int arg) {
+	public void SetUserID(Users arg) {
 		this.userID = arg;
 	}
 	
-	public int GetUserID() {
+	public Users GetUserID() {
 		return userID;
 	}
 	
 	// BookID
-	public void SetBookID(int arg) {
+	public void SetBookID(Books arg) {
 		this.bookID = arg;
 	}
 	
-	public int GetBookID() {
+	public Books GetBookID() {
 		return bookID;
 	}
 	
 	// OrderID
-	public void SetOrderID(int arg) {
+	public void SetOrderID(Orders arg) {
 		this.orderID = arg;
 	}
 	
-	public int GetOrderID() {
+	public Orders GetOrderID() {
 		return orderID;
 	}
 	

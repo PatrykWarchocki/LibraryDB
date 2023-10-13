@@ -5,9 +5,9 @@ public class Books {
 	private int bookID;
 	private String title;
 	private String cover;
-	private int author; // Foreign key - Authors.id
+	private Authors author; // Foreign key - Authors.id
 	private int publicationYear;
-	private int genre; // Foreign key - Genres.id
+	private Genres genre; // Foreign key - Genres.id
 	private String description;
 	private int totalAmount;
 	private boolean deleted;
@@ -35,12 +35,12 @@ public class Books {
 		return cover;
 	}
 
-	// Author
-	public void SetAuthor(int arg) {
+	// Author - Foreign Key
+	public void SetAuthor(Authors arg) {
 		this.author = arg;
 	}
 
-	public int GetAuthor() {
+	public Authors GetAuthor() {
 		return author;
 	}
 
@@ -53,12 +53,12 @@ public class Books {
 		return publicationYear;
 	}
 
-	// Genre
-	public void SetGenre(int arg) {
+	// Genre - Foreign Key
+	public void SetGenre(Genres arg) {
 		this.genre = arg;
 	}
 
-	public int GetGenre() {
+	public Genres GetGenre() {
 		return genre;
 	}
 	
