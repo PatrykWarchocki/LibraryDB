@@ -1,4 +1,4 @@
-package com.library;
+package com.library.tables;
 
 public class OrderType {
 	private int id;
