@@ -8,10 +8,10 @@ public class Users {
 	private String email;
 	private String firstname;
 	private String surname;
-	private int gender; // Foreign Key - Genders.id
+	private Genders gender; // Foreign Key - Genders.id
 	private String address;
 	private String mobilePhone;
-	private int role; // Foreign Key - Roles.id
+	private Roles role; // Foreign Key - Roles.id
 	private boolean status;
 	
 	// ID
@@ -65,11 +65,11 @@ public class Users {
 	}
 	
 	// Gender
-	public void SetGender(int arg) {
+	public void SetGender(Genders arg) {
 		this.gender = arg;
 	}
 	
-	public int GetGender() {
+	public Genders GetGender() {
 		return gender;
 	}
 	
@@ -92,11 +92,11 @@ public class Users {
 	}
 	
 	// Role
-	public void SetRole(int arg) {
+	public void SetRole(Roles arg) {
 		this.role = arg;
 	}
 	
-	public int GetRole() {
+	public Roles GetRole() {
 		return role;
 	}
 	

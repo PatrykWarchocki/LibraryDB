@@ -5,9 +5,9 @@ import java.util.Date;
 public class Orders {
 	// Variables
 	private int orderID;
-	private int userID; // Foreign Key - Users.userID
+	private Users userID; // Foreign Key - Users.userID
 	private Date orderDate;
-	private int orderType; // Foreign Key - OrderType.id
+	private OrderType orderType; // Foreign Key - OrderType.id
 	private Date dateFrom;
 	private Date dateTo;
 	private boolean status;
@@ -18,11 +18,11 @@ public class Orders {
 	}
 
 	// UserID
-	public void SetUserID(int arg) {
+	public void SetUserID(Users arg) {
 		this.userID = arg;
 	}
 
-	public int GetUserID() {
+	public Users GetUserID() {
 		return userID;
 	}
 
@@ -36,11 +36,11 @@ public class Orders {
 	}
 
 	// Order Type
-	public void SetOrderType(int arg) {
+	public void SetOrderType(OrderType arg) {
 		this.orderType = arg;
 	}
 
-	public int GetOrderType() {
+	public OrderType GetOrderType() {
 		return orderType;
 	}
 
