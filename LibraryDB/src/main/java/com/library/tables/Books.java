@@ -1,15 +1,49 @@
 package com.library.tables;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+
+@Entity
+@Table(name="books", 
+	   uniqueConstraints={@UniqueConstraint(columnNames={"bookID"})})
 public class Books {
 	// variables
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="bookID", nullable=false, unique=true)
 	private int bookID;
+	
+	@Column(name="title", length=100, nullable=true)
 	private String title;
+	
+	@Column(name="cover", length=26, nullable=true)
 	private String cover;
+	
+	@OneToOne
+    @JoinColumn(name = "id")
 	private Authors author; // Foreign key - Authors.id
+    
+    @Column(name="publicationYear", nullable=true)
 	private int publicationYear;
+    
+    @OneToOne
+    @JoinColumn(name = "id")
 	private Genres genre; // Foreign key - Genres.id
+    
+	@Column(name="description", length=280, nullable=true)
 	private String description;
+	
+    @Column(name="totalAmount", nullable=true)
 	private int totalAmount;
+    
+    @Column(name="deleted", nullable=true)
 	private boolean deleted;
 
 	// ID
