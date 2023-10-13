@@ -1,4 +1,4 @@
-package com.library;
+package com.library.tables;
 
 public class Books {
 	// variables
