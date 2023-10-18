@@ -28,7 +28,7 @@ public class Orders {
 	private Date orderDate;
 	
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "oTypeID")
 	private OrderType orderType; // Foreign Key - OrderType.id
     
     @Column(name="dateFrom", nullable=true)
