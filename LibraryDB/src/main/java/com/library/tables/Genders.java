@@ -14,15 +14,15 @@ import jakarta.persistence.UniqueConstraint;
 public class Genders {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id", nullable=false)
-	private int id;
+	@Column(name="genderID", nullable=false)
+	private int genderID;
 	
 	@Column(name="gender", length=6, nullable=true, unique=true)
 	private String gender;
 	
 	// ID
-	public int GetID() {
-		return id;
+	public int GetGenderID() {
+		return genderID;
 	}
 	
 	// Gender

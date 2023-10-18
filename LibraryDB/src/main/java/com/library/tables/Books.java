@@ -25,14 +25,14 @@ public class Books {
 	private String cover;
 	
 	@OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "authorID")
 	private Authors author; // Foreign key - Authors.id
     
     @Column(name="publicationYear", nullable=true)
 	private int publicationYear;
     
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "genreID")
 	private Genres genre; // Foreign key - Genres.id
     
 	@Column(name="description", length=280, nullable=true)

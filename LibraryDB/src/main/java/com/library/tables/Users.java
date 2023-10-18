@@ -36,7 +36,7 @@ public class Users {
 	private String surname;
 	
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "genderID")
 	private Genders gender; // Foreign Key - Genders.id
     
 	@Column(name="password", length=40, nullable=true)
@@ -46,7 +46,7 @@ public class Users {
 	private String mobilePhone;
 	
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "roleID")
 	private Roles role; // Foreign Key - Roles.id
     
     @Column(name="status", nullable=true)

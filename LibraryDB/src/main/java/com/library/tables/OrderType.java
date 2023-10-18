@@ -14,15 +14,15 @@ import jakarta.persistence.UniqueConstraint;
 public class OrderType {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id", nullable=false)
-	private int id;
+	@Column(name="oTypeID", nullable=false)
+	private int oTypeID;
 	
 	@Column(name="type", length=6, nullable=true, unique=true)
 	private String type;
 	
 	// ID	
-	public int GetID() {
-		return id;
+	public int GetOTypeID() {
+		return oTypeID;
 	}
 	
 	// Type
