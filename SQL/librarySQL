@@ -1,0 +1,114 @@
+DROP DATABASE IF EXISTS library;
+CREATE DATABASE library;
+
+-- Books:
+CREATE TABLE authors (
+	authorID int NOT NULL AUTO_INCREMENT,
+	name varchar(50) UNIQUE,
+    
+    PRIMARY KEY (authorID)
+);
+
+CREATE TABLE genres (
+	genreID int NOT NULL AUTO_INCREMENT,
+	genre varchar(25) UNIQUE,
+    
+    PRIMARY KEY (genreID)
+);
+
+CREATE TABLE books (
+	bookID int NOT NULL AUTO_INCREMENT,
+	title varchar(100),
+	cover varchar(26),
+	author int,
+	publicationYear int,
+	genre int,
+	description varchar(280),
+	totalAmount int,
+	deleted boolean,
+	
+	PRIMARY KEY (bookID),
+	FOREIGN KEY (author) REFERENCES authors(authorID),
+	FOREIGN KEY (genre) REFERENCES genres(genreID)
+);
+
+
+-- Users:
+CREATE TABLE genders (
+	genderID int NOT NULL AUTO_INCREMENT,
+	gender varchar(6) UNIQUE,
+    
+    PRIMARY KEY (genderID)
+);
+
+CREATE TABLE roles (
+	roleID int NOT NULL AUTO_INCREMENT,
+	role varchar(15) UNIQUE,
+    
+    PRIMARY KEY (roleID)
+);
+
+CREATE TABLE users(
+	userID int NOT NULL AUTO_INCREMENT,
+	login varchar(12) UNIQUE,
+	password varchar(12),
+	email varchar(24) UNIQUE,
+	firstname varchar(20),
+	surname varchar(20),
+	gender int,
+	address varchar(40),
+	mobilePhone varchar(9) UNIQUE,
+	role int,
+	status boolean,
+	
+	PRIMARY KEY (userID),
+	FOREIGN KEY (gender) REFERENCES genders(genderID),
+	FOREIGN KEY (role) REFERENCES roles(roleID)
+);
+
+-- Ordering:
+CREATE TABLE orderType (
+	oTypeID int NOT NULL AUTO_INCREMENT,
+	type varchar(20) UNIQUE,
+    
+    PRIMARY KEY (oTypeID)
+);
+
+CREATE TABLE orders (
+	orderID int NOT NULL AUTO_INCREMENT,
+	userID int,
+	orderDate date,
+	orderType int,
+	dateFrom date,
+	dateTo date,
+	status boolean,
+	
+	PRIMARY KEY (orderID),
+	FOREIGN KEY (userID) REFERENCES users(userID),
+	FOREIGN KEY (orderType) REFERENCES orderType(oTypeID)
+);
+
+CREATE TABLE bookPossesion (
+	bpID int NOT NULL AUTO_INCREMENT,
+	userID int,
+	bookID int,
+	orderID int,
+	issued boolean,
+	
+	PRIMARY KEY (bpID),
+	FOREIGN KEY (userID) REFERENCES users(userID),
+	FOREIGN KEY (bookID) REFERENCES books(bookID),
+	FOREIGN KEY (orderID) REFERENCES orders(orderID)	
+);
+
+CREATE TABLE comments (
+	commentID int NOT NULL AUTO_INCREMENT,
+	userID int,
+	bookID int,
+	dateOfComment timestamp,
+	commentText varchar(280),
+	
+	PRIMARY KEY (commentID),
+	FOREIGN KEY (userID) REFERENCES users(userID),
+	FOREIGN KEY (bookID) REFERENCES books(bookID)
+);
