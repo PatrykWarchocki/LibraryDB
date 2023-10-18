@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.tables.Users;
-
-import jakarta.persistence.NoResultException;
-
 import com.library.HibernateUtil;
 
 //import java.util.List;
@@ -29,25 +26,23 @@ public class LoginController {
 	public String processLogin(@RequestParam String username, @RequestParam String password, Model model) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		// sessionFactory.setAnnotatedClasses(new Class[] { Users.class });
-		boolean authenticated;
+		boolean authenticated = false;
 
 		try {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
 
-			String hql = "FROM Users WHERE username = :username";
+			String hql = "FROM Users WHERE login = :username";
 			Query<Users> query = session.createQuery(hql, Users.class);
 			query.setParameter("username", username);
 			Users foundUser = query.uniqueResult();
 			session.getTransaction().commit();
 
-			if (foundUser.GetPassword() == password) {
-				authenticated = true;
-			} else {
-				authenticated = false;
-			}
+		    if (foundUser != null && foundUser.GetPassword().equals(password)) {
+		        authenticated = true;
+		    }
 
-		} catch (NoResultException e) {
+		} catch (Exception e) {
 			authenticated = false;
 		} finally {
 			sessionFactory.close();
