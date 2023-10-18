@@ -26,23 +26,23 @@ public class Users {
 	@Column(name="password", length=12, nullable=true)
 	private String password;
 	
-	@Column(name="login", length=24, nullable=true, unique=true)
+	@Column(name="email", length=24, nullable=true, unique=true)
 	private String email;
 	
-	@Column(name="password", length=20, nullable=true)
+	@Column(name="firstname", length=20, nullable=true)
 	private String firstname;
 	
-	@Column(name="password", length=20, nullable=true)
+	@Column(name="surname", length=20, nullable=true)
 	private String surname;
 	
     @OneToOne
     @JoinColumn(name = "genderID")
 	private Genders gender; // Foreign Key - Genders.id
     
-	@Column(name="password", length=40, nullable=true)
+	@Column(name="address", length=40, nullable=true)
 	private String address;
 	
-	@Column(name="password", length=9, nullable=true, unique=true)
+	@Column(name="mobilePhone", length=9, nullable=true, unique=true)
 	private String mobilePhone;
 	
     @OneToOne
