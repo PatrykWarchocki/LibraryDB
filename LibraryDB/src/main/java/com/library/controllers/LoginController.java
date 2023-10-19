@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.tables.Users;
+
+import jakarta.persistence.NoResultException;
+
 import com.library.HibernateUtil;
 
 //import java.util.List;
@@ -28,6 +31,7 @@ public class LoginController {
 	public String processLogin(@RequestParam String username, @RequestParam String password, Model model) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		boolean authenticated = false;
+		String errorMessage = null;
 		// sessionFactory.setAnnotatedClasses(new Class[] { Users.class });
 
 		try (Session session = sessionFactory.openSession()) {
@@ -42,10 +46,12 @@ public class LoginController {
 		        authenticated = true;
 		    } else {
 		    	authenticated = false;
+		    	errorMessage = "Invalid credentials";
 		    }
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (NoResultException e) {
+			//e.printStackTrace();
+			errorMessage = "User doesn't exist";
 		}
 
 		if (authenticated) {
@@ -53,7 +59,7 @@ public class LoginController {
 			//model.addAttribute("username", username);			
 			return "dashboard"; // Redirect to a dashboard page upon successful login
 		} else {
-			model.addAttribute("error", "Invalid credentials");
+			model.addAttribute("error", errorMessage);
 			return "login"; // Redirect back to the login page with an error message
 		}
 	}
