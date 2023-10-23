@@ -20,16 +20,14 @@ CREATE TABLE books (
 	bookID int NOT NULL AUTO_INCREMENT,
 	title varchar(100),
 	cover varchar(26),
-	author int,
+	authorID int,
 	publicationYear int,
-	genre int,
+	genreID int,
 	description varchar(280),
 	totalAmount int,
 	deleted boolean,
 	
-	PRIMARY KEY (bookID),
-	FOREIGN KEY (author) REFERENCES authors(authorID),
-	FOREIGN KEY (genre) REFERENCES genres(genreID)
+	PRIMARY KEY (bookID)
 );
 
 
@@ -55,15 +53,13 @@ CREATE TABLE users(
 	email varchar(24) UNIQUE,
 	firstname varchar(20),
 	surname varchar(20),
-	gender int,
+	genderID int,
 	address varchar(40),
 	mobilePhone varchar(9) UNIQUE,
-	role int,
+	roleID int,
 	status boolean,
 	
-	PRIMARY KEY (userID),
-	FOREIGN KEY (gender) REFERENCES genders(genderID),
-	FOREIGN KEY (role) REFERENCES roles(roleID)
+	PRIMARY KEY (userID)
 );
 
 -- Ordering:
@@ -83,9 +79,7 @@ CREATE TABLE orders (
 	dateTo date,
 	status boolean,
 	
-	PRIMARY KEY (orderID),
-	FOREIGN KEY (userID) REFERENCES users(userID),
-	FOREIGN KEY (orderType) REFERENCES orderType(oTypeID)
+	PRIMARY KEY (orderID)
 );
 
 CREATE TABLE bookPossesion (
@@ -95,10 +89,7 @@ CREATE TABLE bookPossesion (
 	orderID int,
 	issued boolean,
 	
-	PRIMARY KEY (bpID),
-	FOREIGN KEY (userID) REFERENCES users(userID),
-	FOREIGN KEY (bookID) REFERENCES books(bookID),
-	FOREIGN KEY (orderID) REFERENCES orders(orderID)	
+	PRIMARY KEY (bpID)
 );
 
 CREATE TABLE comments (
@@ -108,7 +99,5 @@ CREATE TABLE comments (
 	dateOfComment timestamp,
 	commentText varchar(280),
 	
-	PRIMARY KEY (commentID),
-	FOREIGN KEY (userID) REFERENCES users(userID),
-	FOREIGN KEY (bookID) REFERENCES books(bookID)
+	PRIMARY KEY (commentID)
 );
