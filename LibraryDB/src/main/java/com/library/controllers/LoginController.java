@@ -39,7 +39,6 @@ public class LoginController {
 			query.setParameter("username", username);
 			Users foundUser = query.getSingleResult();
 			session.getTransaction().commit();
-			System.out.println(foundUser.getRole());
 
 		    if (foundUser != null && foundUser.getPassword().equals(password)) {
 		        authenticated = true;
