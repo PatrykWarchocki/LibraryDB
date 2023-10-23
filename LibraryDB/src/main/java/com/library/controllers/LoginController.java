@@ -12,8 +12,6 @@ import jakarta.persistence.NoResultException;
 
 import com.library.HibernateUtil;
 
-//import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -24,7 +22,7 @@ public class LoginController {
 	
 	@GetMapping("/login")
 	public String showLoginPage() {
-		return "login"; // Return the name of your Thymeleaf template (login.html)
+		return "login";
 	}
 
 	@PostMapping("/login")
@@ -32,35 +30,46 @@ public class LoginController {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		boolean authenticated = false;
 		String errorMessage = null;
-		// sessionFactory.setAnnotatedClasses(new Class[] { Users.class });
+		int role = 0;
 
 		try (Session session = sessionFactory.openSession()) {
 			session.beginTransaction();
-			String hql = "FROM Users WHERE login = :username";
+			String hql = "SELECT u FROM Users u LEFT JOIN FETCH u.role WHERE u.login = :username";
 			Query<Users> query = session.createQuery(hql, Users.class);
 			query.setParameter("username", username);
 			Users foundUser = query.getSingleResult();
 			session.getTransaction().commit();
+			System.out.println(foundUser.getRole());
 
-		    if (foundUser != null && foundUser.GetPassword().equals(password)) {
+		    if (foundUser != null && foundUser.getPassword().equals(password)) {
 		        authenticated = true;
+		        role = foundUser.getRole().getRoleID();
 		    } else {
 		    	authenticated = false;
 		    	errorMessage = "Invalid credentials";
 		    }
 
 		} catch (NoResultException e) {
-			//e.printStackTrace();
 			errorMessage = "User doesn't exist";
 		}
 
 		if (authenticated) {
-			// If authenticated, you can add user information to the model
-			//model.addAttribute("username", username);			
-			return "dashboard"; // Redirect to a dashboard page upon successful login
+			//model.addAttribute("username", username);	
+			switch(role) {
+				case 1:
+					return "bookcat";
+				case 2:
+					return "dashboard";
+			}
+			
+			//Shouldn't happen but better safe than sorry
+			errorMessage = "Error: User has no role!";
+			model.addAttribute("error", errorMessage);
+			return "login"; 
+			
 		} else {
 			model.addAttribute("error", errorMessage);
-			return "login"; // Redirect back to the login page with an error message
+			return "login";
 		}
 	}
 }

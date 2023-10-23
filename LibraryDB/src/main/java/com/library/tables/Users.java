@@ -2,11 +2,12 @@ package com.library.tables;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -35,7 +36,7 @@ public class Users {
 	@Column(name="surname", length=20, nullable=true)
 	private String surname;
 	
-    @OneToOne
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genderID")
 	private Genders gender; // Foreign Key - Genders.id
     
@@ -45,7 +46,7 @@ public class Users {
 	@Column(name="mobilePhone", length=9, nullable=true, unique=true)
 	private String mobilePhone;
 	
-    @OneToOne
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "roleID")
 	private Roles role; // Foreign Key - Roles.id
     
@@ -53,97 +54,97 @@ public class Users {
 	private boolean status;
 	
 	// ID
-	public int GetID() {
+	public int getID() {
 		return userID;
 	}
 	
 	// Login
-	public void SetLogin(String arg) {
+	public void setLogin(String arg) {
 		this.login = arg;
 	}
 	
-	public String GetLogin() {
+	public String getLogin() {
 		return login;
 	}
 	
 	// Password
-	public void SetPassword(String arg) {
+	public void setPassword(String arg) {
 		this.password = arg;
 	}
 	
-	public String GetPassword() {
+	public String getPassword() {
 		return password;
 	}
 	
 	// Email
-	public void SetEmail(String arg) {
+	public void setEmail(String arg) {
 		this.email = arg;
 	}
 	
-	public String GetEmail() {
+	public String getEmail() {
 		return email;
 	}
 	
 	// First Name
-	public void SetFirstName(String arg) {
+	public void setFirstName(String arg) {
 		this.firstname = arg;
 	}
 	
-	public String GetFirstName() {
+	public String getFirstName() {
 		return firstname;
 	}
 	
 	// Surname
-	public void SetSurname(String arg) {
+	public void setSurname(String arg) {
 		this.surname = arg;
 	}
 	
-	public String GetSurname() {
+	public String getSurname() {
 		return surname;
 	}
 	
 	// Gender
-	public void SetGender(Genders arg) {
+	public void setGender(Genders arg) {
 		this.gender = arg;
 	}
 	
-	public Genders GetGender() {
+	public Genders getGender() {
 		return gender;
 	}
 	
 	// Address
-	public void SetAddress(String arg) {
+	public void setAddress(String arg) {
 		this.address = arg;
 	}
 	
-	public String GetAddress() {
+	public String getAddress() {
 		return address;
 	}
 	
 	// Mobile Phone
-	public void SetMobilePhone(String arg) {
+	public void setMobilePhone(String arg) {
 		this.mobilePhone = arg;
 	}
 	
-	public String GetMobilePhone() {
+	public String getMobilePhone() {
 		return mobilePhone;
 	}
 	
 	// Role
-	public void SetRole(Roles arg) {
+	public void setRole(Roles arg) {
 		this.role = arg;
 	}
 	
-	public Roles GetRole() {
+	public Roles getRole() {
 		return role;
 	}
 	
 	// Status
-	public void SetStatus(boolean arg) {
+	public void setStatus(boolean arg) {
 		this.status = arg;
 	}
 	
-	public boolean GetStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 }	

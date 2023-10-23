@@ -45,79 +45,79 @@ public class Books {
 	private boolean deleted;
 
 	// ID
-	public int GetID() {
+	public int setID() {
 		return bookID;
 	}
 
 	// Title
-	public void SetTitle(String arg) {
+	public void setTitle(String arg) {
 		this.title = arg;
 	}
 
-	public String GetTitle() {
+	public String getTitle() {
 		return title;
 	}
 
 	// Cover
-	public void SetCover(String arg) {
+	public void setCover(String arg) {
 		this.cover = arg;
 	}
 
-	public String GetCover() {
+	public String getCover() {
 		return cover;
 	}
 
 	// Author - Foreign Key
-	public void SetAuthor(Authors arg) {
+	public void setAuthor(Authors arg) {
 		this.author = arg;
 	}
 
-	public Authors GetAuthor() {
+	public Authors getAuthor() {
 		return author;
 	}
 
 	// Publication Year
-	public void SetPublicationYear(int arg) {
+	public void setPublicationYear(int arg) {
 		this.publicationYear = arg;
 	}
 
-	public int GetPublicationYear() {
+	public int getPublicationYear() {
 		return publicationYear;
 	}
 
 	// Genre - Foreign Key
-	public void SetGenre(Genres arg) {
+	public void setGenre(Genres arg) {
 		this.genre = arg;
 	}
 
-	public Genres GetGenre() {
+	public Genres getGenre() {
 		return genre;
 	}
 	
 	// Description
-	public void SetDescription(String arg) {
+	public void setDescription(String arg) {
 		this.description = arg;
 	}
 
-	public String GetDecription() {
+	public String getDecription() {
 		return description;
 	}
 	
 	// Total Amount
-	public void SetTotalAmount(int arg) {
+	public void setTotalAmount(int arg) {
 		this.totalAmount = arg;
 	}
 
-	public int GetTotalAmount() {
+	public int getTotalAmount() {
 		return totalAmount;
 	}
 	
 	// Deleted
-	public void SetDeleted(boolean arg) {
+	public void setDeleted(boolean arg) {
 		this.deleted = arg;
 	}
 	
-	public boolean GetDeleted() {
+	public boolean getDeleted() {
 		return deleted;
 	}
 }

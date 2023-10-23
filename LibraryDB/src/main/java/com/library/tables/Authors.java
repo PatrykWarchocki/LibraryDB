@@ -21,16 +21,16 @@ public class Authors {
 	private String name;
 	
 	// ID
-	public int GetID() {
+	public int setID() {
 		return authorID;
 	}
 	
 	// Name
-	public void SetName(String arg) {
+	public void setName(String arg) {
 		this.name = arg;
 	}
 	
-	public String GetName() {
+	public String setName() {
 		return name;
 	}
 }

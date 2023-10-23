@@ -41,61 +41,61 @@ public class Orders {
 	private boolean status;
 
 	// ID
-	public int GetID() {
+	public int getID() {
 		return orderID;
 	}
 
 	// UserID
-	public void SetUserID(Users arg) {
+	public void setUserID(Users arg) {
 		this.userID = arg;
 	}
 
-	public Users GetUserID() {
+	public Users getUserID() {
 		return userID;
 	}
 
 	// Order Date
-	public void SetOrderDate(Date arg) {
+	public void setOrderDate(Date arg) {
 		this.orderDate = arg;
 	}
 
-	public Date GetOrderDate() {
+	public Date getOrderDate() {
 		return orderDate;
 	}
 
 	// Order Type
-	public void SetOrderType(OrderType arg) {
+	public void setOrderType(OrderType arg) {
 		this.orderType = arg;
 	}
 
-	public OrderType GetOrderType() {
+	public OrderType getOrderType() {
 		return orderType;
 	}
 
 	// Date From
-	public void SetDateFrom(Date arg) {
+	public void setDateFrom(Date arg) {
 		this.dateFrom = arg;
 	}
 
-	public Date GetDateFrom() {
+	public Date getDateFrom() {
 		return dateFrom;
 	}
 
 	// Date To
-	public void SetDateTo(Date arg) {
+	public void setDateTo(Date arg) {
 		this.dateTo = arg;
 	}
 
-	public Date GetDateTo() {
+	public Date getDateTo() {
 		return dateTo;
 	}
 
 	// Status
-	public void SetStatus(boolean arg) {
+	public void setStatus(boolean arg) {
 		this.status = arg;
 	}
 
-	public boolean GetStatus() {
+	public boolean gsetStatus() {
 		return status;
 	}
 }

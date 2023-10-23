@@ -35,43 +35,43 @@ public class Comments {
 	private String commentText;
 	
 	// CommentID
-	public int GetCommentID() {
+	public int getCommentID() {
 		return commentID;
 	}
 	
 	// UserID
-	public void SetUserID(Users arg) {
+	public void setUserID(Users arg) {
 		this.userID = arg;
 	}
 	
-	public Users GetUserID() {
+	public Users getUserID() {
 		return userID;
 	}
 	
 	// BookID
-	public void SetBookID(Books arg) {
+	public void setBookID(Books arg) {
 		this.bookID = arg;
 	}
 	
-	public Books GetBookID() {
+	public Books getBookID() {
 		return bookID;
 	}
 	
 	// Date Of Comment
-	public void SetDateOfComment(Timestamp arg) {
+	public void setDateOfComment(Timestamp arg) {
 		this.dateOfComment = arg;
 	}
 	
-	public Timestamp GetDateOfComment() {
+	public Timestamp getDateOfComment() {
 		return dateOfComment;
 	}
 	
 	// Comment Text
-	public void SetCommentText(String arg) {
+	public void setCommentText(String arg) {
 		this.commentText = arg;
 	}
 	
-	public String GetCommentText() {
+	public String getCommentText() {
 		return commentText;
 	}
 }

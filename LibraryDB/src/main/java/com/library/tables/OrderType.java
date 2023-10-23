@@ -21,16 +21,16 @@ public class OrderType {
 	private String type;
 	
 	// ID	
-	public int GetOTypeID() {
+	public int getOTypeID() {
 		return oTypeID;
 	}
 	
 	// Type
-	public void SetType(String arg) {
+	public void setType(String arg) {
 		this.type = arg;
 	}
 	
-	public String GetType() {
+	public String getType() {
 		return type;
 	}
 }

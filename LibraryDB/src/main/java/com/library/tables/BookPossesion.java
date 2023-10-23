@@ -26,38 +26,38 @@ public class BookPossesion {
 	private boolean issued;
 	
 	// UserID
-	public void SetUserID(Users arg) {
+	public void setUserID(Users arg) {
 		this.userID = arg;
 	}
 	
-	public Users GetUserID() {
+	public Users getUserID() {
 		return userID;
 	}
 	
 	// BookID
-	public void SetBookID(Books arg) {
+	public void setBookID(Books arg) {
 		this.bookID = arg;
 	}
 	
-	public Books GetBookID() {
+	public Books getBookID() {
 		return bookID;
 	}
 	
 	// OrderID
-	public void SetOrderID(Orders arg) {
+	public void setOrderID(Orders arg) {
 		this.orderID = arg;
 	}
 	
-	public Orders GetOrderID() {
+	public Orders getOrderID() {
 		return orderID;
 	}
 	
 	// Issued
-	public void SetIssued(boolean arg) {
+	public void setIssued(boolean arg) {
 		this.issued = arg;
 	}
 	
-	public boolean GetIssued() {
+	public boolean getIssued() {
 		return issued;
 	}
 }
