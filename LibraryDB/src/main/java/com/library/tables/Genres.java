@@ -21,16 +21,16 @@ public class Genres {
 	private String genre;
 	
 	// ID
-	public int GetGenreID() {
+	public int getGenreID() {
 		return genreID;
 	}
 	
 	// Genre
-	public void SetGenre(String arg) {
+	public void setGenre(String arg) {
 		this.genre = arg;
 	}
 	
-	public String GetGenre() {
+	public String getGenre() {
 		return genre;
 	}
 }

@@ -21,16 +21,16 @@ public class Genders {
 	private String gender;
 	
 	// ID
-	public int GetGenderID() {
+	public int getGenderID() {
 		return genderID;
 	}
 	
 	// Gender
-	public void SetGender(String arg) {
+	public void setGender(String arg) {
 		this.gender = arg;
 	}
 	
-	public String GetGender() {
+	public String getGender() {
 		return gender;
 	}
 }
