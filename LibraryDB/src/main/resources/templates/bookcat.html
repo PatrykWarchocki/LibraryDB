@@ -5,11 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<table>
-	<tr th:each="book: ${books}">
-    	<td th:text="${book.title}" />
-    	<td th:text="${book.description}" />
-	</tr>
-</table>
+	<table>
+		<tr th:each="book: ${books}">
+	    	<td>
+	    		<a th:href = "@{'/bookview(bookID= ' + ${book.bookID} + ')'}">
+	    			<span th:text="${book.title}">N/A</span>
+	    		</a>
+	    	</td>
+	    	<td th:text="${book.description}" />
+		</tr>
+	</table>
 </body>
 </html>
