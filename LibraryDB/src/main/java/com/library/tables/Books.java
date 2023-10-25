@@ -45,7 +45,7 @@ public class Books {
 	private boolean deleted;
 
 	// ID
-	public int setID() {
+	public int getBookID() {
 		return bookID;
 	}
 
