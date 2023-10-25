@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,7 +14,7 @@ import com.library.tables.Books;
 @Controller
 public class BookViewController {
 	@GetMapping("/bookview")
-	public String viewBook(@RequestParam int bookID) {
+	public String viewBook(@RequestParam int bookID, Model model) {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		
 		try (Session session = sessionFactory.openSession()) {
@@ -24,7 +25,7 @@ public class BookViewController {
 			Books foundBook = query.getSingleResult();
 			session.getTransaction().commit();
 			
-			System.out.println(foundBook.getTitle());
+			model.addAttribute("book", foundBook);
 		}
 		
 		return "bookview";

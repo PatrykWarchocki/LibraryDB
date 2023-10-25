@@ -30,7 +30,7 @@ public class Authors {
 		this.name = arg;
 	}
 	
-	public String setName() {
+	public String getName() {
 		return name;
 	}
 }

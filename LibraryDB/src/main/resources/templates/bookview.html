@@ -5,6 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	OH MY LORD IT WORKS
+	<b>Title:</b> <snap th:text = "${book.title}"> N/A </snap> <br>
+	<b>Author:</b> <snap th:text = "${book.author.name}"> N/A </snap> <br>
+	<b>Year of Publication:</b> <snap th:text = "${book.publicationYear}"> N/A </snap> <br>
+	<b>Genre:</b> <snap th:text = "${book.genre.genre}"> N/A </snap> <br>
+	<b>Description:</b> <snap th:text = "${book.description}"> N/A </snap> <br>
+	<br>
+	<b>Total amount:</b> <snap th:text = "${book.totalAmount}"> N/A </snap> <br>
+	<br>
+	<a th:href="@{/bookcat}"> Go back </a>
 </body>
 </html>
