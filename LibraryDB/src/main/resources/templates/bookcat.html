@@ -5,6 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	OH MY LORD IT WORKS TOO
+<table>
+	<tr th:each="book: ${books}">
+    	<td th:text="${book.title}" />
+    	<td th:text="${book.description}" />
+	</tr>
+</table>
 </body>
 </html>

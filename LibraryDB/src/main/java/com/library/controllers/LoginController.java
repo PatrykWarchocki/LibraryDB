@@ -33,7 +33,7 @@ public class LoginController {
 
 		try (Session session = sessionFactory.openSession()) {
 			session.beginTransaction();
-			String hql = "SELECT u FROM Users u WHERE u.login = :username";
+			String hql = "FROM Users u WHERE u.login = :username";
 			Query<Users> query = session.createQuery(hql, Users.class);
 			query.setParameter("username", username);
 			Users foundUser = query.getSingleResult();

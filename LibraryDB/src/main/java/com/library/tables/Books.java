@@ -99,7 +99,7 @@ public class Books {
 		this.description = arg;
 	}
 
-	public String getDecription() {
+	public String getDescription() {
 		return description;
 	}
 	
