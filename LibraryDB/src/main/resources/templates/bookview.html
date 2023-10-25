@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	<img th:src="@{'covers/' + ${book.cover}}" alt="Book cover" width="200" height="300" /> <br>
 	<b>Title:</b> <snap th:text = "${book.title}"> N/A </snap> <br>
 	<b>Author:</b> <snap th:text = "${book.author.name}"> N/A </snap> <br>
 	<b>Year of Publication:</b> <snap th:text = "${book.publicationYear}"> N/A </snap> <br>
