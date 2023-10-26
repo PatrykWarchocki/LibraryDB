@@ -25,10 +25,6 @@ public class CatalogController {
 			Query<Books> query = session.createQuery(hql, Books.class);
 			List<Books> bookList = query.getResultList();
 			session.getTransaction().commit();
-			
-//		    List<String> titles = new ArrayList<>();
-//		    for(int i = 1; i < bookList.size(); i++)
-//		    	titles.add(bookList.get(i).getTitle());
 		    
 		    model.addAttribute("books", bookList);
 		}
