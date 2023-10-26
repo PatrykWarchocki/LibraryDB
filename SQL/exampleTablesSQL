@@ -1,0 +1,76 @@
+ALTER TABLE roles AUTO_INCREMENT = 0;
+INSERT INTO roles (role)
+VALUES ('user'), ('admin');
+
+ALTER TABLE genders AUTO_INCREMENT = 0;
+INSERT INTO genders (gender)
+VALUES ('male'), ('female'), ('other');
+
+ALTER TABLE users AUTO_INCREMENT = 0;
+INSERT INTO users (login, password, email, genderID, roleID, status)
+VALUES ('user', 'qwerty', 'user@root.com', 3, 1, 1),
+	   ('root', 'qwerty', 'admin@root.com', 3, 2, 1);
+
+-- ------------------------------------------------------------------------------------
+
+ALTER TABLE genres AUTO_INCREMENT = 0;
+INSERT INTO genres (genre)
+VALUES
+  ('Classic'),
+  ('Dystopian'),
+  ('Adventure'),
+  ('Fantasy'),
+  ('Historical'),
+  ('Mythology'),
+  ('Poetry'),
+  ('Magical Realism'),
+  ('Post-Apocalyptic'),
+  ('Psychological Thriller'),
+  ('Gothic'),
+  ('Philosophical');
+
+ALTER TABLE authors AUTO_INCREMENT = 0;
+INSERT INTO authors (name)
+VALUES
+  ('Harper Lee'),
+  ('George Orwell'),
+  ('Jane Austen'),
+  ('F. Scott Fitzgerald'),
+  ('J.D. Salinger'),
+  ('Herman Melville'),
+  ('Charlotte Brontë'),
+  ('J.R.R. Tolkien'),
+  ('Paulo Coelho'),
+  ('Leo Tolstoy'),
+  ('Homer (attributed)'),
+  ('Dante Alighieri'),
+  ('Gabriel García Márquez'),
+  ('Aldous Huxley'),
+  ('Cormac McCarthy'),
+  ('Ernest Hemingway'),
+  ('Fyodor Dostoevsky'),
+  ('Oscar Wilde');
+
+ALTER TABLE books AUTO_INCREMENT = 0;
+INSERT INTO books (title, cover, authorID, publicationYear, genreID, description, totalAmount, deleted)
+VALUES
+  ('To Kill a Mockingbird', 'mockingbird.jpg', 1, 1960, 1, 'A classic novel by Harper Lee', 10, 0),
+  ('1984', '1984.jpg', 2, 1949, 2, 'A dystopian novel by George Orwell', 15, 0),
+  ('Pride and Prejudice', 'pride.jpg', 3, 1813, 1, 'A classic novel by Jane Austen', 12, 0),
+  ('The Great Gatsby', 'gatsby.jpg', 4, 1925, 1, 'A novel by F. Scott Fitzgerald', 8, 0),
+  ('The Catcher in the Rye', 'catcher.jpg', 2, 1951, 2, 'A novel by J.D. Salinger', 11, 0),
+  ('Moby-Dick', 'mobydick.jpg', 6, 1851, 3, 'A novel by Herman Melville', 9, 0),
+  ('Jane Eyre', 'janeeyre.jpg', 7, 1847, 1, 'A novel by Charlotte Brontë', 14, 0),
+  ('The Hobbit', 'hobbit.jpg', 8, 1937, 4, 'A fantasy novel by J.R.R. Tolkien', 13, 0),
+  ('The Lord of the Rings', 'lotr.jpg', 8, 1954, 4, 'A fantasy epic by J.R.R. Tolkien', 20, 0),
+  ('The Alchemist', 'alchemist.jpg', 9, 1988, 3, 'A novel by Paulo Coelho', 7, 0),
+  ('War and Peace', 'warandpeace.jpg', 10, 1869, 5, 'A classic novel by Leo Tolstoy', 16, 0),
+  ('The Odyssey', 'odyssey.jpg', 11, -800, 6, 'An ancient Greek epic poem attributed to Homer', 6, 0),
+  ('The Divine Comedy', 'divinecomedy.jpg', 12, 1320, 7, 'An epic poem by Dante Alighieri', 5, 0),
+  ('One Hundred Years of Solitude', 'solitude.jpg', 13, 1967, 8, 'A novel by Gabriel García Márquez', 10, 0),
+  ('Brave New World', 'bravenewworld.jpg', 14, 1932, 2, 'A dystopian novel by Aldous Huxley', 9, 0),
+  ('The Road', 'road.jpg', 15, 2006, 9, 'A novel by Cormac McCarthy', 8, 0),
+  ('The Old Man and the Sea', 'oldmansea.jpg', 16, 1952, 1, 'A novella by Ernest Hemingway', 6, 0),
+  ('Crime and Punishment', 'crimepunishment.jpg', 17, 1866, 10, 'A novel by Fyodor Dostoevsky', 7, 0),
+  ('The Picture of Dorian Gray', 'doriangray.jpg', 18, 1890, 11, 'A novel by Oscar Wilde', 5, 0),
+  ('The Brothers Karamazov', 'karamazov.jpg', 17, 1880, 12, 'A novel by Fyodor Dostoevsky', 6, 0);
