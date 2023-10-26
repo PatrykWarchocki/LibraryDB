@@ -13,7 +13,13 @@
 	<b>Description:</b> <snap th:text = "${book.description}"> N/A </snap> <br>
 	<br>
 	<b>Total amount:</b> <snap th:text = "${book.totalAmount}"> N/A </snap> <br>
+	<b>Current amount:</b> <snap th:text = "${book.totalAmount}"> N/A </snap> <br>
+	<a th:href="@{/order(bookID=${book.bookID})}"> 
+		<button>Order</button><br>
+	</a>
 	<br>
-	<a th:href="@{/bookcat}"> Go back </a>
+	<a th:href="@{/bookcat}"> 
+		<button> Go back </button> 
+	</a> 
 </body>
 </html>
