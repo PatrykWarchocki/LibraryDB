@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class OrderingController {
 	@GetMapping("/order")
 	public String manageOrder(@RequestParam int bookID, Model model) {
+		model.addAttribute("bookID", bookID);
 		return "ordering";
 	}
 }
