@@ -5,6 +5,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<snap th:text = "${bookID}"> N/A </snap>
+	<form th:action="@{/order}" method="post">
+		<label for="name">First Name:</label>
+		<input type="text"  id="name" value="name" disabled/><br>
+		
+		<label for="surname">Last Name: </label>
+		<input type="text"  id="surname" value="surname" disabled/><br>
+		
+		<label for="address">Address:</label>
+		<input type="text"  id="address" value="address" disabled/><br>
+		
+		<label for="title">Book:</label>
+		<input type="text"  id="title" value="title" disabled/><br>
+		
+		<label for="start">Order for:</label>
+		<input type="date"  id="start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+		
+		<label for="end">Return before:</label>
+		<input type="date"  id="end" value="2018-07-22" min="2018-01-01" max="2018-12-31" /> <br>
+		
+		<button type="submit">Confirm</button>
+	</form> <br>
+	<a th:href="@{/bookview(bookID=${bookID})}"> 
+		<button> Cancel </button> 
+	</a> 
 </body>
 </html>
