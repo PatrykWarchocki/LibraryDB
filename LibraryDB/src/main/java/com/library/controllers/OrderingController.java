@@ -1,13 +1,20 @@
 package com.library.controllers;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.library.HibernateUtil;
+import com.library.tables.OrderType;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 
 @Controller
@@ -23,6 +30,18 @@ public class OrderingController {
 		String sAWeekLater = aWeekLater.format(formatter);
 		LocalDate aHYLater = curDate.plusMonths(6);
 		String sAHYLater = aHYLater.format(formatter);
+		
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		
+		try (Session session = sessionFactory.openSession()) {
+			session.beginTransaction();
+			String hql = "FROM OrderType";
+			Query<OrderType> query = session.createQuery(hql, OrderType.class);
+			List<OrderType> otList = query.getResultList();
+			session.getTransaction().commit();
+		    
+		    model.addAttribute("ordertypes", otList);
+		}
 		
 		model.addAttribute("bookID", bookID);
 		model.addAttribute("nextDay", sADayLater);
