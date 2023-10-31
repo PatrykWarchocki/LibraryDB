@@ -24,6 +24,11 @@
 		<label for="end">Return before:</label>
 		<input type="date"  id="end" th:value="${nextWeek}" th:min="${nextWeek}" th:max="${nextHalf}" /> <br>
 		
+	    <label for="otype">Order type:</label>
+	    <select id="otype">
+	    	<option  th:each="type : ${ordertypes}" th:value=${type.oTypeID} th:text="${type.type}"></option>
+	    </select> <br>
+		
 		<button type="submit">Confirm</button>
 	</form> <br>
 	<a th:href="@{/bookview(bookID=${bookID})}"> 
