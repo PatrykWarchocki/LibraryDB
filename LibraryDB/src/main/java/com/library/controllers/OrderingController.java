@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.HibernateUtil;
 import com.library.tables.OrderType;
+import com.library.tables.Books;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -41,9 +42,18 @@ public class OrderingController {
 			session.getTransaction().commit();
 		    
 		    model.addAttribute("ordertypes", otList);
+		    
+		    session.beginTransaction();
+		    hql = "FROM Books b WHERE b.bookID = :book";
+			Query<Books> query2 = session.createQuery(hql, Books.class);
+			query2.setParameter("book", bookID);
+			Books book = query2.getSingleResult();
+			session.getTransaction().commit();
+			
+			System.out.println(book.getBookID());
+			model.addAttribute("book", book);
 		}
 		
-		model.addAttribute("bookID", bookID);
 		model.addAttribute("nextDay", sADayLater);
 		model.addAttribute("nextWeek", sAWeekLater);
 		model.addAttribute("nextHalf", sAHYLater);

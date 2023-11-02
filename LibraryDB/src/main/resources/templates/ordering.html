@@ -6,6 +6,9 @@
 </head>
 <body>
 	<form th:action="@{/order}" method="post">
+		<input type="hidden" name="bookID" th:value=${book.bookID}>
+    	<input type="hidden" name="userID" value="value2">
+	
 		<label for="name">First Name:</label>
 		<input type="text"  id="name" value="name" disabled/><br>
 		
@@ -16,7 +19,7 @@
 		<input type="text"  id="address" value="address" disabled/><br>
 		
 		<label for="title">Book:</label>
-		<input type="text"  id="title" value="title" disabled/><br>
+		<input type="text"  id="title" th:value="${book.title}" disabled/><br>
 		
 		<label for="start">Order for:</label>
 		<input type="date"  id="start" th:value="${nextDay}" th:min="${nextDay}" th:max="${nextWeek}" />
