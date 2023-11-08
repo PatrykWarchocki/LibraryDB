@@ -1,6 +1,6 @@
 package com.library.tables;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name="orders")
@@ -25,17 +27,20 @@ public class Orders {
 	private Users userID; // Foreign Key - Users.userID
     
     @Column(name="orderDate", nullable=true)
-	private Date orderDate;
+    @Temporal(TemporalType.DATE)
+	private LocalDate orderDate;
 	
     @OneToOne
     @JoinColumn(name = "oTypeID")
 	private OrderType orderType; // Foreign Key - OrderType.id
     
     @Column(name="dateFrom", nullable=true)
-	private Date dateFrom;
+    @Temporal(TemporalType.DATE)
+	private LocalDate dateFrom;
     
     @Column(name="dateTo", nullable=true)
-	private Date dateTo;
+    @Temporal(TemporalType.DATE)
+	private LocalDate dateTo;
     
     @Column(name="status", nullable=true)
 	private boolean status;
@@ -55,11 +60,11 @@ public class Orders {
 	}
 
 	// Order Date
-	public void setOrderDate(Date arg) {
+	public void setOrderDate(LocalDate arg) {
 		this.orderDate = arg;
 	}
 
-	public Date getOrderDate() {
+	public LocalDate getOrderDate() {
 		return orderDate;
 	}
 
@@ -73,20 +78,20 @@ public class Orders {
 	}
 
 	// Date From
-	public void setDateFrom(Date arg) {
+	public void setDateFrom(LocalDate arg) {
 		this.dateFrom = arg;
 	}
 
-	public Date getDateFrom() {
+	public LocalDate getDateFrom() {
 		return dateFrom;
 	}
 
 	// Date To
-	public void setDateTo(Date arg) {
+	public void setDateTo(LocalDate arg) {
 		this.dateTo = arg;
 	}
 
-	public Date getDateTo() {
+	public LocalDate getDateTo() {
 		return dateTo;
 	}
 
